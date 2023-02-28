@@ -3,12 +3,12 @@
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.layout.VBox?>
-
+<?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.control.Button?>
-<VBox alignment="CENTER" spacing="20.0" xmlns:fx="http://javafx.com/fxml"
-      fx:controller="com.example.estacionamiento.HelloController">
-    <padding>
-    </padding>
 
-    <Label fx:id="welcomeText"/>
-</VBox>
+<AnchorPane fx:id="rootScene" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.estacionamiento.HelloController">
+<children>
+
+    <Button text="prueba!" onAction="#setCuadricula"/>
+</children>
+</AnchorPane>

@@ -1,10 +1,10 @@
 package com.example.estacionamiento;
 
-public class Espacio {
+public class Espacio implements Runnable{
     private int x;
     private int y;
     private boolean ocupado;
-    private int id; 
+    private int id;
 
     public Espacio(int id, int x, int y, boolean ocupado) {
         this.id = id;
@@ -34,10 +34,12 @@ public class Espacio {
     public void setY(int y) {
         this.y = y;
     }
-public void setOcupado(boolean ocupado) {
+    public void setOcupado(boolean ocupado) {
         this.ocupado = ocupado;
     }
 
+    @Override
+    public void run() {
 
-
+    }
 }
