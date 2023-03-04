@@ -8,6 +8,16 @@ public class Entrada {
     public static int checkEntrada = 0;
     private Random random;
 
+    public synchronized void salidaAutos(){
+        for(int i=0; i<bufferCar.length; i++){
+            if(bufferCar[i].compareTo(Thread.currentThread().getName()) == 0){
+                bufferCar[i]="vacio";
+                System.out.println("-->Salida carro "+ i);
+                checkEntrada = i;
+                break;
+            }
+        }
+    }
 
     public Entrada() {
         bufferCar = new String[20];
@@ -17,7 +27,7 @@ public class Entrada {
         random = new Random(System.currentTimeMillis());
     }
 
-    public synchronized void arriveCar()  {
+    public synchronized void entradaAuto()  {
             for(int i=0; i<bufferCar.length; i++){
                 if(bufferCar[i] == "vacio") {
                     System.out.println("Entrada <-- carro "+ i  );
@@ -26,17 +36,6 @@ public class Entrada {
                     break;
                 }
 
-            }
-    }
-
-    public synchronized void leaveCar(){
-            for(int i=0; i<bufferCar.length; i++){
-                if(bufferCar[i].compareTo(Thread.currentThread().getName()) == 0){
-                    bufferCar[i]="vacio";
-                    System.out.println("-->Salida carro "+ i);
-                    checkEntrada = i;
-                    break;
-                }
             }
     }
 

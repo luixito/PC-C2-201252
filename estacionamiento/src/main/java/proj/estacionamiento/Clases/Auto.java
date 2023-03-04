@@ -43,16 +43,16 @@ public class Auto extends Observable implements Runnable {
                 door.release();
                 totalCarros++;
                 espacios--;
-                entrada.arriveCar();
+                entrada.entradaAuto();
                 setChanged();
                 notifyObservers(1);
                 try {
-                    Thread.sleep(random.nextInt(4000+1000)+1500);
+                    Thread.sleep(random.nextInt(3000+1000)+500);
                 } catch (InterruptedException e) {
                     e.printStackTrace();
                 }
                 totalCarros--;
-                entrada.leaveCar();
+                entrada.salidaAutos();
                 door.release();
                 mutex.release();
                 espacios++;

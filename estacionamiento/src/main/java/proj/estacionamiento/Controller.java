@@ -37,25 +37,25 @@ public class Controller implements Observer {
 
             Autos[y] = new ImageView();
             if(y<5){
-                Autos[y].setLayoutX(202+ (68*y)); Autos[y].setLayoutY(400);
+                Autos[y].setLayoutX(136+ (68*y)); Autos[y].setLayoutY(391);
                 Autos[y].setFitHeight(66); Autos[y].setFitWidth(46);
                 canvas.getChildren().add(Autos[y]);
 
             }
             if(y>4 && y<10){
-                Autos[y].setLayoutX(202+ (68*a)); Autos[y].setLayoutY(275);
+                Autos[y].setLayoutX(136+ (68*a)); Autos[y].setLayoutY(266);
                 Autos[y].setFitHeight(66); Autos[y].setFitWidth(46);
                 canvas.getChildren().add(Autos[y]);
                 a++;
             }
             if(y>9 && y <15){
-                Autos[y].setLayoutX(198+ (68*b)); Autos[y].setLayoutY(185);
+                Autos[y].setLayoutX(136+ (68*b)); Autos[y].setLayoutY(166);
                 Autos[y].setFitHeight(66); Autos[y].setFitWidth(46);
                 canvas.getChildren().add(Autos[y]);
                 b++;
             }
             if(y>14 && y <20){
-                Autos[y].setLayoutX(198+ (68*c)); Autos[y].setLayoutY(60);
+                Autos[y].setLayoutX(136+ (68*c)); Autos[y].setLayoutY(60);
                 Autos[y].setFitHeight(66); Autos[y].setFitWidth(46);
                 canvas.getChildren().add(Autos[y]);
                 c++;
@@ -94,10 +94,10 @@ public class Controller implements Observer {
         Semaphore mutex = new Semaphore(0);
         Semaphore Puerta = new Semaphore(1);
         Entrada entrada = new Entrada();
-        Auto[] autos = new Auto[150];
+        Auto[] autos = new Auto[100];
         File file = new File("src/main/java/proj/estacionamiento/rec/carro.png");
         imageCar = new Image(file.toURI().toString());
-        for (int i = 0; i < 150; i++) {
+        for (int i = 0; i < 100; i++) {
             auto = new Auto(mutex, Puerta, entrada, imageCar);
             auto.addObserver(this);
             autos[i] = auto;
