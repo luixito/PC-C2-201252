@@ -1,8 +1,10 @@
-module com.example.estacionamiento {
+module proj.estacionamiento {
     requires javafx.controls;
     requires javafx.fxml;
 
 
-    opens com.example.estacionamiento to javafx.fxml;
-    exports com.example.estacionamiento;
+    opens proj.estacionamiento to javafx.fxml;
+    exports proj.estacionamiento;
+    exports proj.estacionamiento.Clases;
+    opens proj.estacionamiento.Clases to javafx.fxml;
 }
