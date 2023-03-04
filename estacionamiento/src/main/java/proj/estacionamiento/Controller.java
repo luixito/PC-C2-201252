@@ -2,7 +2,6 @@ package proj.estacionamiento;
 
 import javafx.application.Platform;
 import javafx.fxml.FXML;
-import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
@@ -12,7 +11,6 @@ import proj.estacionamiento.Clases.*;
 import java.io.File;
 import java.util.Observable;
 import java.util.Observer;
-import java.util.Random;
 import java.util.concurrent.Semaphore;
 
 
@@ -20,7 +18,6 @@ import java.util.concurrent.Semaphore;
 public class Controller implements Observer {
 
     private Auto auto;
-    private int cantHilos = 100;
     private int a,b,c = 0;
     private Image imageCar;
     ImageView [] Autos = new ImageView[20];
@@ -72,10 +69,10 @@ public class Controller implements Observer {
     @Override
     public void update(Observable o, Object arg) {
         if(o instanceof Auto){
-            ImageView valor = Autos[Config.checkEntrada];
+            ImageView valor = Autos[Entrada.checkEntrada];
             if((Integer)arg == 1){
                 try {
-                    Thread.sleep(100);
+                    Thread.sleep(50);
                     Platform.runLater(()->{
                         valor.setVisible(true);
                         valor.setImage(((Auto)o).getImage());
@@ -97,11 +94,10 @@ public class Controller implements Observer {
         Semaphore mutex = new Semaphore(0);
         Semaphore Puerta = new Semaphore(1);
         Entrada entrada = new Entrada();
-        Random random = new Random(System.currentTimeMillis());
-        Auto[] autos = new Auto[cantHilos];
-        File file = new File("src/main/java/proj/estacionamiento/Recursos/carro.png");
+        Auto[] autos = new Auto[150];
+        File file = new File("src/main/java/proj/estacionamiento/rec/carro.png");
         imageCar = new Image(file.toURI().toString());
-        for (int i = 0; i < cantHilos; i++) {
+        for (int i = 0; i < 150; i++) {
             auto = new Auto(mutex, Puerta, entrada, imageCar);
             auto.addObserver(this);
             autos[i] = auto;
